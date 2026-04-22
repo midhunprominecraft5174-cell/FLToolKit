@@ -1,5 +1,6 @@
 R_DEF: Internal format may change without notice
 local
+color accent_game
 color background
 color colorError
 color colorSuccess
@@ -7,9 +8,13 @@ color onPrimary
 color onSurface
 color outline
 color primary
+color primary_game
+color secondary_game
 color surface
 drawable blahaj_logo
 drawable circle_badge
+drawable ic_launcher_game
+drawable ic_launcher_game_new
 id btnAddRestriction
 id btnContinue
 id btnLock

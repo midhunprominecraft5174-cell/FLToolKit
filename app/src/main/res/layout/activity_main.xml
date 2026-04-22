@@ -15,7 +15,7 @@
             android:id="@+id/toolbar"
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
-            app:title="MDM Admin"
+            app:title="FL ToolKit"
             app:titleCentered="true" />
     </com.google.android.material.appbar.AppBarLayout>
 

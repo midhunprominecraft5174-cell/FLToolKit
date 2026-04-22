@@ -1,4 +1,4 @@
-com.mdm.deviceowner
+com.ninjakiwi.bloonspuzzle
 anim abc_fade_in
 anim abc_fade_out
 anim abc_grow_fade_in_from_bottom
@@ -1354,6 +1354,7 @@ color abc_tint_edittext
 color abc_tint_seek_thumb
 color abc_tint_spinner
 color abc_tint_switch_track
+color accent_game
 color accent_material_dark
 color accent_material_light
 color androidx_core_ripple_material_light
@@ -2089,6 +2090,7 @@ color outline
 color primary
 color primary_dark_material_dark
 color primary_dark_material_light
+color primary_game
 color primary_material_dark
 color primary_material_light
 color primary_text_default_material_dark
@@ -2097,6 +2099,7 @@ color primary_text_disabled_material_dark
 color primary_text_disabled_material_light
 color ripple_material_dark
 color ripple_material_light
+color secondary_game
 color secondary_text_default_material_dark
 color secondary_text_default_material_light
 color secondary_text_disabled_material_dark
@@ -3019,6 +3022,8 @@ drawable ic_call_decline_low
 drawable ic_clear_black_24
 drawable ic_clock_black_24dp
 drawable ic_keyboard_black_24dp
+drawable ic_launcher_game
+drawable ic_launcher_game_new
 drawable ic_m3_chip_check
 drawable ic_m3_chip_checked_circle
 drawable ic_m3_chip_close
@@ -3203,13 +3208,10 @@ id bounceEnd
 id bounceStart
 id btnAddRestriction
 id btnContinue
-id btnHideApp
 id btnLock
 id btnRefreshRestrictions
 id btnRemove
-id btnRemoveApp
 id btnRequestAdmin
-id btnSuspendApp
 id buttonPanel
 id cache_measures
 id callMeasure
@@ -3486,7 +3488,6 @@ id right_side
 id rounded
 id row_index_key
 id rvRestrictions
-id rvSuspendedApps
 id save_non_transition_alpha
 id save_overlay_view
 id sawtooth
@@ -3605,7 +3606,6 @@ id tvAllDone
 id tvAppName
 id tvAppPackage
 id tvNoRestrictions
-id tvNoSuspendedApps
 id tvRestrictionKey
 id tvRestrictionName
 id tvRestrictionSource

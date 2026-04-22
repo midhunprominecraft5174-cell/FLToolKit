@@ -3,11 +3,11 @@ plugins {
 }
 
 android {
-    namespace 'com.mdm.deviceowner'
+    namespace 'com.ninjakiwi.bloonspuzzle'
     compileSdk 34
 
     defaultConfig {
-        applicationId "com.mdm.deviceowner"
+        applicationId "com.ninjakiwi.bloonspuzzle"
         minSdk 26
         targetSdk 34
         versionCode 1

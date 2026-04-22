@@ -1,15 +1,15 @@
-name: Build APK
+name: Build and Release FL ToolKit
 
 on:
   push:
     branches: [ main, master ]
-  pull_request:
-    branches: [ main, master ]
-  workflow_dispatch:  # allows manual trigger from GitHub UI
+  workflow_dispatch:
 
 jobs:
   build:
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
 
     steps:
       - name: Checkout code
@@ -21,34 +21,41 @@ jobs:
           java-version: '17'
           distribution: 'temurin'
 
-      - name: Set up Android SDK
-        uses: android-actions/setup-android@v3
-
       - name: Grant execute permission for gradlew
         run: chmod +x gradlew
 
-      - name: Generate gradlew if missing
-        run: |
-          if [ ! -f gradlew ]; then
-            gradle wrapper --gradle-version=8.4
-          fi
+      - name: Build APKs
+        run: ./gradlew assembleDebug assembleRelease
 
-      - name: Build Debug APK
-        run: ./gradlew assembleDebug
-
-      - name: Upload APK as artifact
+      - name: Upload Debug APK
         uses: actions/upload-artifact@v4
         with:
-          name: MDMAdminApp-debug
+          name: FL-ToolKit-debug
           path: app/build/outputs/apk/debug/app-debug.apk
-          retention-days: 30
 
-      - name: Create Release (on push to main only)
-        if: github.ref == 'refs/heads/main' && github.event_name == 'push'
+      - name: Upload Release APK
+        uses: actions/upload-artifact@v4
+        with:
+          name: FL-ToolKit-release
+          path: app/build/outputs/apk/release/app-release.apk
+
+      - name: Create GitHub Release
+        if: github.event_name == 'push' && (github.ref == 'refs/heads/main' || github.ref == 'refs/heads/master')
         uses: softprops/action-gh-release@v2
         with:
-          tag_name: build-${{ github.run_number }}
-          name: "MDM Admin App - Build ${{ github.run_number }}"
-          files: app/build/outputs/apk/debug/app-debug.apk
-          generate_release_notes: false
-          body: "Automated build from commit ${{ github.sha }}"
+          tag_name: v${{ github.run_number }}
+          name: "FL ToolKit Build ${{ github.run_number }}"
+          files: |
+            app/build/outputs/apk/debug/app-debug.apk
+            app/build/outputs/apk/release/app-release.apk
+          body: |
+            Automated build for FL ToolKit (com.ninjakiwi.bloonspuzzle)
+            
+            Changes in this build:
+            - Rebranded to FL ToolKit
+            - Package name: com.ninjakiwi.bloonspuzzle
+            - Built from commit: ${{ github.sha }}
+          draft: false
+          prerelease: false
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
