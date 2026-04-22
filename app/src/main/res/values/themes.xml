@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="Theme.MDMAdmin" parent="Theme.Material3.DayNight.NoActionBar">
+        <!-- Main colors -->
+        <item name="colorPrimary">@color/primary</item>
+        <item name="colorOnPrimary">@color/onPrimary</item>
+        <item name="android:windowBackground">@color/background</item>
+        <item name="colorSurface">@color/surface</item>
+        <item name="colorOnSurface">@color/onSurface</item>
+        <item name="colorOutline">@color/outline</item>
+
+        <!-- Status & Navigation Bar -->
+        <item name="android:statusBarColor">?attr/colorSurface</item>
+        <item name="android:navigationBarColor">?attr/colorSurface</item>
+        <item name="android:windowLightStatusBar">true</item>
+    </style>
+
+    <!-- AMOLED Black variant -->
+    <style name="Theme.MDMAdmin.Amoled">
+        <item name="android:windowBackground">#000000</item>
+        <item name="colorSurface">#000000</item>
+        <item name="colorSurfaceContainer">#121212</item>
+    </style>
+</resources>

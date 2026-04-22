@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="200dp"
+    android:height="100dp"
+    android:viewportWidth="200"
+    android:viewportHeight="100">
+
+    <!-- Body - Blahaj Blue -->
+    <path
+        android:fillColor="#5FAAD7"
+        android:pathData="M20,50 Q40,20 100,20 Q160,20 180,50 Q160,80 100,80 Q40,80 20,50 Z" />
+
+    <!-- Belly - White -->
+    <path
+        android:fillColor="#FFFFFF"
+        android:pathData="M40,50 Q60,70 100,70 Q140,70 160,50 Q140,40 100,40 Q60,40 40,50 Z" />
+
+    <!-- Dorsal Fin -->
+    <path
+        android:fillColor="#5FAAD7"
+        android:pathData="M80,25 L100,5 L120,25 Z" />
+
+    <!-- Tail Fin -->
+    <path
+        android:fillColor="#5FAAD7"
+        android:pathData="M175,50 L195,35 L195,65 Z" />
+
+    <!-- Pectoral Fin -->
+    <path
+        android:fillColor="#5FAAD7"
+        android:pathData="M70,60 L50,75 L90,75 Z" />
+
+    <!-- Eye -->
+    <path
+        android:fillColor="#000000"
+        android:pathData="M55,42 A2,2 0 1,1 54.99,42 Z" />
+
+    <!-- Gills / Mouth Pink -->
+    <path
+        android:fillColor="#FFB7C5"
+        android:pathData="M35,50 Q40,55 45,50"
+        android:strokeColor="#FFB7C5"
+        android:strokeWidth="1" />
+
+</vector>
