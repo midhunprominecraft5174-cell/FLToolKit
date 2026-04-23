@@ -3,11 +3,11 @@ plugins {
 }
 
 android {
-    namespace 'com.ninjakiwi.bloonspuzzle'
+    namespace 'fi.junixald.fltool'
     compileSdk 34
 
     defaultConfig {
-        applicationId "com.ninjakiwi.bloonspuzzle"
+        applicationId "fi.junixald.fltool"
         minSdk 26
         targetSdk 34
         versionCode 1
