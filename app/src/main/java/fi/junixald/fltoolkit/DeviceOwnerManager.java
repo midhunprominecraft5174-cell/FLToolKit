@@ -76,8 +76,10 @@ public class DeviceOwnerManager {
             }
         } catch (SecurityException e) {
             Log.e(TAG, "Developer options policy requires higher privileges", e);
+            ErrorHandler.showErrorNotification(context, "Security Error: Developer options require Device Owner/Profile Owner status." + e.getMessage());
         } catch (Exception e) {
             Log.e(TAG, "enforceDeveloperOptions failed", e);
+            ErrorHandler.showErrorNotification(context, "Error enforcing Developer Options: " + e.getMessage());
         }
     }
 
@@ -100,6 +102,7 @@ public class DeviceOwnerManager {
             }
         } catch (Exception e) {
             Log.e(TAG, "enforceMultiUser failed", e);
+            ErrorHandler.showErrorNotification(context, "Error enforcing Multi-User: " + e.getMessage());
         }
     }
 
@@ -160,9 +163,11 @@ public class DeviceOwnerManager {
             return failed.length == 0;
         } catch (SecurityException e) {
             Log.e(TAG, "setPackageSuspended requires Device Owner or Profile Owner", e);
+            ErrorHandler.showErrorNotification(context, "Privilege Error: App suspension requires DO/PO status.");
             return false;
         } catch (Exception e) {
             Log.e(TAG, "setPackageSuspended failed", e);
+            ErrorHandler.showErrorNotification(context, "Error suspending package: " + e.getMessage());
             return false;
         }
     }
@@ -201,6 +206,7 @@ public class DeviceOwnerManager {
             dpm.setScreenCaptureDisabled(adminComponent, disabled);
         } catch (Exception e) {
             Log.e(TAG, "setScreenCaptureDisabled failed", e);
+            ErrorHandler.showErrorNotification(context, "Error disabling screen capture: " + e.getMessage());
         }
     }
 
