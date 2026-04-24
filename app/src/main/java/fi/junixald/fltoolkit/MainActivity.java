@@ -1,11 +1,17 @@
 package fi.junixald.fltoolkit;
 
+import android.Manifest;
 import android.content.Intent;
+import android.content.pm.PackageManager;
+import android.os.Build;
 import android.os.Bundle;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
 
 import com.google.android.material.button.MaterialButton;
 import com.google.android.material.card.MaterialCardView;
@@ -13,6 +19,7 @@ import com.google.android.material.materialswitch.MaterialSwitch;
 
 public class MainActivity extends AppCompatActivity {
 
+    private static final int PERMISSION_REQUEST_CODE = 1002;
     private DeviceOwnerManager dom;
 
     private TextView tvStatus;
@@ -22,6 +29,7 @@ public class MainActivity extends AppCompatActivity {
     private MaterialSwitch switchMultiUser;
 
     private MaterialButton btnLock;
+    private MaterialButton btnTestError;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,6 +48,28 @@ public class MainActivity extends AppCompatActivity {
         setupSwitches();
         setupDeviceActions();
         refreshAll();
+
+        checkNotificationPermission();
+    }
+
+    private void checkNotificationPermission() {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
+            if (ContextCompat.checkSelfPermission(this, Manifest.permission.POST_NOTIFICATIONS) != PackageManager.PERMISSION_GRANTED) {
+                ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.POST_NOTIFICATIONS}, PERMISSION_REQUEST_CODE);
+            }
+        }
+    }
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+        if (requestCode == PERMISSION_REQUEST_CODE) {
+            if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+                Toast.makeText(this, "Notification permission granted", Toast.LENGTH_SHORT).show();
+            } else {
+                Toast.makeText(this, "Notification permission denied. Errors will not be shown.", Toast.LENGTH_LONG).show();
+            }
+        }
     }
 
     @Override
@@ -56,6 +86,11 @@ public class MainActivity extends AppCompatActivity {
         switchMultiUser = findViewById(R.id.switchMultiUser);
 
         btnLock = findViewById(R.id.btnLock);
+        btnTestError = findViewById(R.id.btnTestError);
+
+        btnTestError.setOnClickListener(v -> {
+            ErrorHandler.showErrorNotification(this, "Manual Test: This is what a copyable error looks like!");
+        });
     }
 
     private void setupDeviceActions() {

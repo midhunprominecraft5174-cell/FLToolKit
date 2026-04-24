@@ -3210,6 +3210,7 @@ id btnContinue
 id btnLock
 id btnRemove
 id btnRequestAdmin
+id btnTestError
 id buttonPanel
 id cache_measures
 id callMeasure

@@ -3209,6 +3209,7 @@ int id btnContinue 0x7f080062
 int id btnLock 0x7f080063
 int id btnRemove 0x7f080064
 int id btnRequestAdmin 0x7f080065
+int id btnTestError 0x7f080208
 int id buttonPanel 0x7f080066
 int id cache_measures 0x7f080067
 int id callMeasure 0x7f080068

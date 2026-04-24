@@ -19,6 +19,7 @@ id btnContinue
 id btnLock
 id btnRemove
 id btnRequestAdmin
+id btnTestError
 id cardStatus
 id cardStep1
 id ivAppIcon

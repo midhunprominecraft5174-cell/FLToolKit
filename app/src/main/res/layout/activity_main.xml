@@ -125,7 +125,7 @@
                     <androidx.constraintlayout.helper.widget.Flow
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        app:constraint_referenced_ids="btnLock"
+                        app:constraint_referenced_ids="btnLock,btnTestError"
                         app:flow_horizontalGap="8dp"
                         app:flow_verticalGap="8dp"
                         app:flow_wrapMode="aligned"
@@ -139,6 +139,14 @@
                         android:layout_height="wrap_content"
                         android:text="@string/btn_lock"
                         app:icon="@android:drawable/ic_lock_lock" />
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/btnTestError"
+                        style="@style/Widget.Material3.Button.TonalButton"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Test Error"
+                        app:icon="@android:drawable/stat_notify_error" />
 
                 </androidx.constraintlayout.widget.ConstraintLayout>
 
