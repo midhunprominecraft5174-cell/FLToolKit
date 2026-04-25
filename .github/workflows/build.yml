@@ -25,7 +25,7 @@ jobs:
           gradle wrapper --gradle-version 8.7
           chmod +x gradlew
       - name: Change App ID
-        run: sed -i 's/applicationId ".*"/applicationId "com.example.chess"/' app/build.gradle
+        run: sed -i 's/applicationId ".*"/applicationId "com.mobiplayapps.chessforyou"/' app/build.gradle
       - name: Build APKs
         run: ./gradlew assembleDebug assembleRelease
       - name: Upload Debug APK
